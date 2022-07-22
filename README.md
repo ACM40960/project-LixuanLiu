@@ -16,7 +16,8 @@ The overall idea of this project is to build up a Convolutional Neural Network w
 
 ## _Tools and Preparation_
 
-- Python 3.8.8
+- Python 3.8.8  
+
     You can choose any editor you want, a few options are provide here:
     - Spyder (Anaconda)
     - Jupyter Notebook (Anaconda)
@@ -25,7 +26,8 @@ The overall idea of this project is to build up a Convolutional Neural Network w
 
 <br />
 
-- Tensorflow 2.3.0
+- Tensorflow 2.3.0  
+
     To support Python 3.8, TensorFlow 2.2 or higher is required
     
     Open Anaconda Prompt
