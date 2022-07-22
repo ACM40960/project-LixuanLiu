@@ -27,6 +27,13 @@ The overall idea of this project is to build up a Convolutional Neural Network w
 
 - Tensorflow 2.3.0
     To support Python 3.8, TensorFlow 2.2 or higher is required
+    
+    Open Anaconda Prompt
+    
+    ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/Tools_Anaconda.png)
+    
+    type in
+    
     ```bash
     # Requires the latest pip
     $ pip install --upgrade pip
