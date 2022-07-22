@@ -11,6 +11,7 @@
   - [Preparation](#preparation)
     - [Making the dirctionary of first level](#making-the-dirctionary-of-first-level)
     - [Making the dirctionary of second level](#making-the-dirctionary-of-second-level)
+  - [Download data here (Very important):](#download-data-here-very-important)
 
 
 ## _Basic Overview_
@@ -129,3 +130,12 @@ Same as above:
 
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_valid.png)
 
+<br />
+
+## Download data here (Very important):
+
+After creating dirctionary, now we need data for our model !!
+
+Data have been uploaded to my Google drive, and I will also submit another copy through `Brightsapce`.
+
+Here is the Link to Google Drive: [CNN-Data](https://drive.google.com/file/d/1eUgZoiIiYIRRCsoZt_K7Y2kgBxRmGrlS/view?usp=sharing)
