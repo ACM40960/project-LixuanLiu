@@ -9,6 +9,8 @@
   - [_Basic Overview_](#basic-overview)
   - [_Tools and Preparation_](#tools-and-preparation)
   - [Preparation](#preparation)
+    - [Making the dirctionary of first level](#making-the-dirctionary-of-first-level)
+    - [Making the dirctionary of second level](#making-the-dirctionary-of-second-level)
 
 
 ## _Basic Overview_
@@ -62,10 +64,13 @@ The overall idea of this project is to build up a Convolutional Neural Network w
 
 - `The whole program need to be run under tensorflow`
 - First of all some data need to be placed into right palce
-    ```python
+
+### Making the dirctionary of first level
+
+```python
     def mkdir(path):
     if not os.path.exists(path):
-        os.makedirs(path)
+    os.makedirs(path)
     
     runPath = os.getcwd()
 
@@ -79,16 +84,17 @@ The overall idea of this project is to build up a Convolutional Neural Network w
     ## valid_dir
     valid_dir = data_dir + 'valid/'
     mkdir(valid_dir)
-    ```
-    Creating two folders `train, valid` under default dictionary:
-    - train: place training data
-    - valid: place validation data
+```
 
-    ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_train_valid.png)
+Creating two folders `train, valid` under default dictionary:
+- train: place training data
+- valid: place validation data
 
-    <br />
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_train_valid.png)
 
-    ```python
+### Making the dirctionary of second level
+
+```python
     ## doll_train
     doll_dir = train_dir + 'doll/'
     mkdir(doll_dir)
@@ -97,17 +103,17 @@ The overall idea of this project is to build up a Convolutional Neural Network w
     blue_dir = train_dir + 'blue/'
     mkdir(blue_dir)
     
-    ```
+```
 
-    Under train folder, we store images in two places:
-    - blue: for images of British Blue Cat
-    - doll: for images of Ragdoll
+Under train folder, we store images in two places:
+- blue: for images of British Blue Cat
+- doll: for images of Ragdoll
 
-    ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_train.png)
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_train.png)
 
-    <br />
+<br />
 
-    ```python
+```python
     ## doll_valid
     doll_valid_dir = valid_dir + 'doll/'
     mkdir(doll_valid_dir)
@@ -115,11 +121,11 @@ The overall idea of this project is to build up a Convolutional Neural Network w
     ## blue_valid
     blue_valid_dir = valid_dir + 'blue/'
     mkdir(blue_valid_dir)
-    ```
+```
     
-    Same as above:
-    - blue: for images of British Blue Cat
-    - doll: for images of Ragdoll   
+Same as above:
+- blue: for images of British Blue Cat
+- doll: for images of Ragdoll   
 
-    ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_valid.png)
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_valid.png)
 
