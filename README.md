@@ -3,10 +3,12 @@
 <center><img src="https://img.shields.io/badge/python-3.8.8-blue.svg"/> <img src="https://img.shields.io/badge/tensorflow-2.3.0-green.svg"/> </center>
 
 ## _Table of Content_
+
 - [<center>_Image Recognition Based on CNN_</center>](#centerimage-recognition-based-on-cnncenter)
   - [_Table of Content_](#table-of-content)
   - [_Basic Overview_](#basic-overview)
   - [_Tools and Preparation_](#tools-and-preparation)
+  - [Preparation](#preparation)
 
 
 ## _Basic Overview_
@@ -56,4 +58,68 @@ The overall idea of this project is to build up a Convolutional Neural Network w
 
 [(Back to top)](#table-of-content)
 
+## Preparation
+
+- `The whole program need to be run under tensorflow`
+- First of all some data need to be placed into right palce
+    ```python
+    def mkdir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+    
+    runPath = os.getcwd()
+
+    data_dir =runPath + '/data/'
+    mkdir(data_dir)
+
+    ## train_dir
+    train_dir = data_dir + 'train/'
+    mkdir(train_dir)
+
+    ## valid_dir
+    valid_dir = data_dir + 'valid/'
+    mkdir(valid_dir)
+    ```
+    Creating two folders `train, valid` under default dictionary:
+    - train: place training data
+    - valid: place validation data
+
+    ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_train_valid.png)
+
+    <br />
+
+    ```python
+    ## doll_train
+    doll_dir = train_dir + 'doll/'
+    mkdir(doll_dir)
+    
+    ## blue_train
+    blue_dir = train_dir + 'blue/'
+    mkdir(blue_dir)
+    
+    ```
+
+    Under train folder, we store images in two places:
+    - blue: for images of British Blue Cat
+    - doll: for images of Ragdoll
+
+    ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_train.png)
+
+    <br />
+
+    ```python
+    ## doll_valid
+    doll_valid_dir = valid_dir + 'doll/'
+    mkdir(doll_valid_dir)
+
+    ## blue_valid
+    blue_valid_dir = valid_dir + 'blue/'
+    mkdir(blue_valid_dir)
+    ```
+    
+    Same as above:
+    - blue: for images of British Blue Cat
+    - doll: for images of Ragdoll   
+
+    ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_valid.png)
 
