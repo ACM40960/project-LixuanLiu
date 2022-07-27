@@ -77,6 +77,8 @@ And the version of package pillow need to be change, go the `installed` and type
 
 [!image](https://github.com/ACM40960/project-LixuanLiu/blob/main/pillow.png)
 
+And the we can import packages in Python
+
   ```python
     import os
     import tensorflow as tf
