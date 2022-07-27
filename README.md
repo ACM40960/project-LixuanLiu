@@ -39,15 +39,18 @@ The overall idea of this project is to build up a Convolutional Neural Network w
     
     ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/Tools_Anaconda.png)
     
-    type in
+    Firstly we seperate a new environment for tensorflow, so that the original environment won't be influenced
+    
+    ![image]
     
     ```bash
     # Requires the latest pip
-    $ pip install --upgrade pip
+    pip install --upgrade pip
     # Current stable release for CPU and GPU
-    $ pip install tensorflow
+    pip install tensorflow
     ```
-
+    Or tensorflow can be installed through Anaconda
+    
 <br />
 
 - Python Packages
