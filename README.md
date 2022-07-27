@@ -65,7 +65,17 @@ Go to the environment and choose you new environment created in the last step.
 
 choose the `Not Installed` and type in the name of the package you want in the input box.
 
-[!image]()
+[!image](https://github.com/ACM40960/project-LixuanLiu/blob/main/packages.png)
+
+The packages that we need to install are:
+
+  - pandas
+  - scipy
+  - matplotlib
+
+And the version of package pillow need to be change, go the `installed` and type in pillow, choose the version 9.0.1
+
+[!image](https://github.com/ACM40960/project-LixuanLiu/blob/main/pillow.png)
 
   ```python
     import os
