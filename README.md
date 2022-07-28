@@ -12,6 +12,10 @@
     - [Making the dirctionary of first level](#making-the-dirctionary-of-first-level)
     - [Making the dirctionary of second level](#making-the-dirctionary-of-second-level)
   - [Download data here (Very important):](#download-data-here-very-important)
+  - [Image Augmentation](#image-augmentation)
+  - [Modeling Training](#modeling-training)
+    - [Complex Model](#complex-model)
+    - [Simple Model](#simple-model)
 
 
 ## _Basic Overview_
@@ -169,6 +173,8 @@ Data have been uploaded to my Google drive, and I will also submit another copy 
 
 Here is the Link to Google Drive: [CNN-Data](https://drive.google.com/file/d/1eUgZoiIiYIRRCsoZt_K7Y2kgBxRmGrlS/view?usp=sharing)
 
+[(Back to top)](#table-of-content)
+
 ## Image Augmentation
 
 The purpose of Image Augmentation is makeing the sample data more comprehensive
@@ -215,6 +221,8 @@ train_generator,valid_generator = img_transforms()
 If all datasets are placed correctly, the result of the Image Augnmentation should be like:
 
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/Image_augmentation.png)
+
+[(Back to top)](#table-of-content)
 
 ## Modeling Training
 
@@ -325,6 +333,8 @@ plot_learning_curves(history, 'loss', TRAIN_STEP, 0, 5)
 
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/loss_normal.png)
 
+[(Back to top)](#table-of-content)
+
 ### Simple Model
 
 ```python
@@ -356,3 +366,5 @@ model = cnn(150,150,3,2)
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/simple_model.png)
 
 The callback rules and plot code for the simple model is just same as above, the result is shown in the report document
+
+[(Back to top)](#table-of-content)
