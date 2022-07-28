@@ -81,6 +81,10 @@ And the version of package pillow need to be change, go the `installed` and type
 
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/pillow_version.png)
 
+The editor I choose is spyder. Choose the the tensorflow environment and install spyder
+
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/spyder.png)
+
 Then we can import packages in Python
 
   ```python
