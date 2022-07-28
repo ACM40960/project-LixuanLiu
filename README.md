@@ -65,7 +65,7 @@ Go to the environment and choose you new environment created in the last step.
 
 choose the `Not Installed` and type in the name of the package you want in the input box.
 
-[!image](https://github.com/ACM40960/project-LixuanLiu/blob/main/packages.png)
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/packages.png)
 
 The packages that we need to install are:
 
@@ -75,9 +75,9 @@ The packages that we need to install are:
 
 And the version of package pillow need to be change, go the `installed` and type in pillow, choose the version 9.0.1
 
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/pillow_version.png)
 
-
-And the we can import packages in Python
+Then we can import packages in Python
 
   ```python
     import os
@@ -91,8 +91,8 @@ And the we can import packages in Python
 
 ## Preparation
 
-- `The whole program need to be run under tensorflow`
-- First of all some data need to be placed into right palce
+- `The whole program need to be run under tensorflow environment.`
+- First of all, data for this model need to be placed into right palce.
 
 ### Making the dirctionary of first level
 
@@ -101,8 +101,9 @@ And the we can import packages in Python
     if not os.path.exists(path):
     os.makedirs(path)
     
+    ## get main directionary
     runPath = os.getcwd()
-
+    
     data_dir =runPath + '/data/'
     mkdir(data_dir)
 
@@ -116,7 +117,7 @@ And the we can import packages in Python
 ```
 
 Creating two folders `train, valid` under default dictionary:
-- train: place training data
+- train: place training data, contain two folders, folder "blue" to store the images of the Britain Blue, folder "doll" to store the images
 - valid: place validation data
 
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/mkdir_train_valid.png)
@@ -167,3 +168,191 @@ After creating dirctionary, now we need data for our model !!
 Data have been uploaded to my Google drive, and I will also submit another copy through `Brightsapce`.
 
 Here is the Link to Google Drive: [CNN-Data](https://drive.google.com/file/d/1eUgZoiIiYIRRCsoZt_K7Y2kgBxRmGrlS/view?usp=sharing)
+
+## Image Augmentation
+
+The purpose of Image Augmentation is makeing the sample data more comprehensive
+
+```python
+def img_transforms():
+    train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(
+            rescale=1. / 255,
+            rotation_range=50,
+            width_shift_range=0.2,
+            height_shift_range=0.2,
+            shear_range=0.2,
+            zoom_range=0.2,
+            horizontal_flip=False,
+            fill_mode='nearest',
+    )
+    
+    train_generator = train_datagen.flow_from_directory(
+        train_dir,
+        target_size=(150, 150),
+        batch_size=30,
+        seed=1,
+        shuffle=True,
+        class_mode='categorical'
+    )
+
+
+    valid_datagen = tf.keras.preprocessing.image.ImageDataGenerator(
+        rescale=1. / 255,
+    )
+
+    valid_generator = valid_datagen.flow_from_directory(
+        valid_dir,
+        target_size=(150, 150),
+        batch_size=30,
+        seed=1,
+        shuffle=False,
+        class_mode="categorical"
+    )
+    return train_generator,valid_generator
+
+train_generator,valid_generator = img_transforms()
+```
+If all datasets are placed correctly, the result of the Image Augnmentation should be like:
+
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/Image_augmentation.png)
+
+## Modeling Training
+
+We have two models, one is a complex model, another one has simpler structure
+
+### Complex Model
+
+```python
+def cnn(width,height,depth,outputNum):
+
+    model = tf.keras.models.Sequential([
+
+        tf.keras.layers.Conv2D(filters=16, 
+                            kernel_size=3, 
+                            padding='same', 
+                            activation='relu', 
+                            input_shape=[width, height, depth]), 
+
+        tf.keras.layers.MaxPool2D(pool_size=3, strides=(3,3),padding='same'),
+
+        tf.keras.layers.Conv2D(filters=64, 
+                            kernel_size=3, 
+                            padding='same', 
+                            activation='relu'), 
+
+        tf.keras.layers.MaxPool2D(pool_size=5, strides=(3,3),padding='same'),
+
+        tf.keras.layers.Conv2D(filters=32, 
+                            kernel_size=2, 
+                            padding='same', 
+                            activation='relu'), 
+
+        tf.keras.layers.MaxPool2D(pool_size=3, strides=(2,2),padding='same'),
+
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(2048, activation='relu'),
+        tf.keras.layers.Dropout(rate=0.2),
+        tf.keras.layers.Dense(1024, activation='relu'),
+        tf.keras.layers.Dense(512, activation='relu'),
+        tf.keras.layers.Dense(256, activation='relu'),
+        tf.keras.layers.Dense(128, activation='relu'),
+        tf.keras.layers.Dense(outputNum, activation='softmax')
+    ])
+
+    model.compile(loss='categorical_crossentropy',
+                  optimizer='adam',
+                  metrics=['accuracy'])
+    model.summary()
+    return model
+
+model = cnn(150,150,3,2)
+```
+The output will be the summary the model
+
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/comple_model.png)
+
+Deciding the parameters of the model is the first step, then the second step is set the callback rules:
+
+```python
+modelPath = './model'
+mkdir(modelPath)
+
+output_model_file = os.path.join(modelPath,"dollvssilver_weights.h5")
+
+def plot_learning_curves(history, label, epochs, min_value, max_value):
+    data = {}
+    data[label] = history.history[label]
+    data['val_' + label] = history.history['val_' + label]
+    pd.DataFrame(data).plot(figsize=(8, 5))
+    plt.grid(True)
+    plt.axis([0, epochs, min_value, max_value])
+    plt.show()
+
+
+TRAIN_STEP = 20
+
+
+callbacks = [
+            tf.keras.callbacks.TensorBoard(modelPath),
+            tf.keras.callbacks.ModelCheckpoint(output_model_file,
+                                            save_best_only=True,
+                                            save_weights_only=True),
+            tf.keras.callbacks.EarlyStopping(patience=5, min_delta=1e-3)
+        ]
+```
+
+The final step is training the model and 
+
+```python
+history = model.fit(
+        train_generator,
+        epochs=TRAIN_STEP,
+        validation_data = valid_generator,
+        callbacks = callbacks
+    )
+```
+
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/process_normal.png)
+
+plot the accuracy curve as well as the loss curve
+
+```python
+plot_learning_curves(history, 'accuracy', TRAIN_STEP, 0, 1)
+plot_learning_curves(history, 'loss', TRAIN_STEP, 0, 5)
+```
+
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/acc_normal.png)
+
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/loss_normal.png)
+
+### Simple Model
+
+```python
+def cnn(width,height,depth,outputNum):
+
+    model = tf.keras.models.Sequential([
+
+        tf.keras.layers.Conv2D(filters=16, 
+                            kernel_size=5, 
+                            padding='same', 
+                            activation='relu', 
+                            input_shape=[width, height, depth]), 
+
+        tf.keras.layers.MaxPool2D(pool_size=5, strides=(5,5),padding='same'),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(128, activation='relu'),
+        tf.keras.layers.Dense(outputNum, activation='softmax')
+    ])
+
+    model.compile(loss='categorical_crossentropy',
+                  optimizer='adam',
+                  metrics=['accuracy'])
+    model.summary()
+    return model
+
+model = cnn(150,150,3,2)
+```
+
+![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/simple_model.png)
+
+The callback rules and plot code for the simple model is just same as above, the result is shown in the report document
