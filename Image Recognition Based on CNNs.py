@@ -127,7 +127,7 @@ model = cnn(150,150,3,2)
 modelPath = './model'
 mkdir(modelPath)
 
-output_model_file = os.path.join(modelPath,"dollvssilver_weights.h5")
+output_model_file = os.path.join(modelPath,"DollvsBlue_weights.h5")
 
 def plot_learning_curves(history, label, epochs, min_value, max_value):
     data = {}
@@ -188,6 +188,8 @@ def cnn(width,height,depth,outputNum):
     return model
 
 model = cnn(150,150,3,2)
+
+output_model_file = os.path.join(modelPath,"DollvsBlue_weights_simple.h5")
 
 history = model.fit(
         train_generator,
