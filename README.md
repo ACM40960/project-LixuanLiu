@@ -19,7 +19,7 @@
 
 
 ## _Basic Overview_
-The overall idea of this project is to build up a Convolutional Neural Network which can automatically tell to which breed of cat belong based on their coat, shape of face and some other elements once the cats' pictures are provided.
+The overall idea of this project is to build up a Convolutional Neural Network which can automatically tell to which breed of cat belong based on their coat, shape of face and some other elements once the cats' pictures are provided. The breeds choosen in this project are the Britain Blue and RogDoll, I didn't use the Britain Silver, the breed that I have mentioned in literature review, becasue the coat color of the Britain Silver and RogDoll are too close to each other.
 
 [(Back to top)](#table-of-content)
 
