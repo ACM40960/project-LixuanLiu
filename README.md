@@ -8,6 +8,10 @@
   - [_Table of Content_](#table-of-content)
   - [_Basic Overview_](#basic-overview)
   - [_Tools and Preparation_](#tools-and-preparation)
+    - [Anaconda](#anaconda)
+    - [Tensorflow](#tensorflow)
+    - [Python Packages](#python-packages)
+    - [Editor](#editor)
   - [Preparation](#preparation)
     - [Making the dirctionary of first level](#making-the-dirctionary-of-first-level)
     - [Making the dirctionary of second level](#making-the-dirctionary-of-second-level)
@@ -25,7 +29,7 @@ The overall idea of this project is to build up a Convolutional Neural Network w
 
 ## _Tools and Preparation_
 
-- Python 3.8.8  
+### Anaconda
 
     You can choose any editor you want, a few options are provide here:
     - Spyder (Anaconda)
@@ -35,7 +39,7 @@ The overall idea of this project is to build up a Convolutional Neural Network w
 
 <br />
 
-- Tensorflow 2.3.0  
+### Tensorflow
 
     To support Python 3.8, TensorFlow 2.2 or higher is required
     
@@ -60,14 +64,17 @@ The overall idea of this project is to build up a Convolutional Neural Network w
     
 <br />
 
-- Python Packages
-To run the code, a few packages are needed. This can be done by from Anaconda or Anaconda Prompt. 
+### Python Packages
 
-Here I will show the first way.
+  To run the code, a few packages are needed. 
 
-Go to the environment and choose you new environment created in the last step.
+  This can be done by from Anaconda or Anaconda Prompt. 
 
-choose the `Not Installed` and type in the name of the package you want in the input box.
+  Here I will show how to do it using Anaconda.
+
+  - Go to the environment and choose you new environment created in the last step.
+
+  - choose the `Not Installed` and type in the name of the package you want in the input box, such as `tensorflow`.
 
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/packages.png)
 
@@ -81,7 +88,9 @@ And the version of package pillow need to be change, go the `installed` and type
 
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/pillow_version.png)
 
-The editor I choose is spyder. Choose the the tensorflow environment and install spyder
+### Editor
+
+The editor that I used is spyder (you can choose the editor you like). Choose the the tensorflow environment and install the editor
 
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/spyder.png)
 
