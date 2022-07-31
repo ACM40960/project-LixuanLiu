@@ -20,6 +20,7 @@
   - [Modeling Training](#modeling-training)
     - [Complex Model](#complex-model)
     - [Simple Model](#simple-model)
+  - [Thanks For Reading](#thanks)
 
 
 ## _Basic Overview_
@@ -380,6 +381,14 @@ model = cnn(150,150,3,2)
 
 ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/simple_model.png)
 
-The callback rules and plot code for the simple model is just same as above, the result is shown in the report document
+The callback rules and plot code for the simple model is just same as above.
 
 [(Back to top)](#table-of-content)
+
+## Thanks
+
+The report that contains all the plots and training processes have been submited to Brightspace. In Github you can check the codes created by `Spyder` [python code](https://github.com/ACM40960/project-LixuanLiu/blob/main/Image%20Recognition%20Based%20on%20CNNs.py) or codes created by `Jupyter` [Jupyter Notebook code](https://github.com/ACM40960/project-LixuanLiu/blob/main/Image%20Recognition%20Based%20on%20CNNs%20(Jupyter).ipynb), I uploaded both of them.
+
+This is the end of README file.
+
+Thanks for reading! 
