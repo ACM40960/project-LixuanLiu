@@ -30,37 +30,36 @@ The overall idea of this project is to build up a Convolutional Neural Network w
 ## _Tools and Preparation_
 
 ### Anaconda
+   You can choose any editor you want, a few options are provide here:
+   - Spyder (Anaconda)
+   - Jupyter Notebook (Anaconda)
 
-    You can choose any editor you want, a few options are provide here:
-    - Spyder (Anaconda)
-    - Jupyter Notebook (Anaconda)
-
-    Both of the editor can be find here: [Anaconda Download](https://www.anaconda.com/products/distribution) .
+   Both of the editor can be find here: [Anaconda Download](https://www.anaconda.com/products/distribution).
 
 <br />
 
 ### Tensorflow
 
-    To support Python 3.8, TensorFlow 2.2 or higher is required
+   To support Python 3.8, TensorFlow 2.2 or higher is required
     
-    Firstly we seperate a new environment for tensorflow, so that the original environment won't be influenced
+   Firstly we seperate a new environment for tensorflow, so that the original environment won't be influenced
     
-    the name of the new environment can be named as whatever you like
+   the name of the new environment can be named as whatever you like
     
-    ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/python_environment.png)
+   ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/python_environment.png)
     
     
-    then open Anaconda Prompt from the start manue
+   then open Anaconda Prompt from the start manue
     
-    ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/Tools_Anaconda.png)
+   ![image](https://github.com/ACM40960/project-LixuanLiu/blob/main/Tools_Anaconda.png)
     
         
-    ```bash
-    # choose the new environment (need to change the name, the name of my environment is tensorflow)
-    activate tensorflow
-    # Current stable release for CPU and GPU
-    pip install tensorflow
-    ```
+   ```bash
+   # choose the new environment (need to change the name, the name of my environment is tensorflow)
+   activate tensorflow
+   # Current stable release for CPU and GPU
+   pip install tensorflow
+   ```
     
 <br />
 
@@ -119,8 +118,11 @@ Then we can import packages in Python
     os.makedirs(path)
     
     ## get main directionary
+    ## or you can define your own runPath, use the code:
+    ## runPath = whatever the path you like. exp: runPath = "C:/Users/Suiy/Desktop/CNNs"
     runPath = os.getcwd()
     
+    ## the code below will create folders automatically
     data_dir =runPath + '/data/'
     mkdir(data_dir)
 
@@ -133,7 +135,7 @@ Then we can import packages in Python
     mkdir(valid_dir)
 ```
 
-Creating two folders `train, valid` under default dictionary:
+Above code will create two folders `train, valid` under default dictionary, pleas notice that the default dictionary is based on your own setting:
 - train: place training data, contain two folders, folder "blue" to store the images of the Britain Blue, folder "doll" to store the images
 - valid: place validation data
 
